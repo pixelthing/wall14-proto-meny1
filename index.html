@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8"> 
+  <head>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'>
+    <title>Meny prototype</title>
+    <style>
+      /* setup */
+      * {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      body {
+        margin: 20px;
+        font-size: 16px;
+        font-family: courier;
+      }
+      /* nav */
+      .nav1 {
+        position: relative;
+        width: 250px;
+        height: 350px;
+        background: #eee;
+        overflow: hidden;
+        font-size: 0.9em;
+      }
+      .nav1-lvl0,
+      .nav1-lvl1,
+      .nav1-lvl2 {
+        position: relative;
+        z-index: 0;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .nav1-lvl0 {
+        xxbackground-color: red;
+        -webkit-transition: all 300ms;
+        -moz-transition: all 300ms;
+        transition: all 300ms;
+      }
+      .nav1-at-lvl0 .nav1-shuttle {
+        left: 0;
+      }
+      .nav1-at-lvl1 .nav1-shuttle {
+        left: -100%;
+      }
+      .nav1-at-lvl2 .nav1-shuttle {
+        left: -200%;
+      }
+      .nav1-lvl1,
+      .nav1-lvl2 {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 100%;
+      }
+      .nav1-lvl1 {
+        xxbackground-color: blue;
+      }
+      .nav1-lvl2 {
+        xxbackground-color: green;
+      }
+      .nav1-lvl__visible {
+        display: block;
+        z-index: 1;
+      }
+      .nav1-link,
+      .nav1-back {
+        display: block;
+        padding: 5px 10px;
+        text-decoration: none;
+        color: #333;
+        -webkit-transition: all 300ms;
+        -moz-transition: all 300ms;
+        transition: all 300ms;
+      }
+      .nav1-link:hover {
+        background-color: #fff;
+      }
+      .nav1-link__on {
+        color: #fff;
+        background-color: #999;
+      }
+      .nav1-link__on:hover {
+        background-color: #666;
+      }
+      .nav1-back {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #fff;
+      }
+      .nav1-at-lvl0 .nav1-back {
+        color: #eee;
+      }
+      .nav1-link__more:before {
+        content: '>';
+        float: right;
+      }
+      /* misc */
+      .container {
+        width: 960px;
+        margin: 0 auto;
+      }
+      .breadcrumb {
+        margin: 0 0 10px;
+        padding: 20px;
+        background: #eee;
+      }
+      .nav1 {
+        float: left;
+        position: relative;
+        left: -690px;
+      }
+      section {
+        float: left;
+        position: relative;
+        left: 270px;
+        width: 690px;
+        padding: 20px;
+        background: #eee;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="breadcrumb">
+        Hem > För hyresgäter > Din Bostad > Rent och fint i din lägenhet
+      </div>
+
+      <section>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac odio sit amet massa   cursus iaculis vel at   turpis. Nunc sodales nisl dictum, porta tellus ut, porttitor nibh. Aenean   semper cursus magna, porta dapibus sem   dapibus a. Nulla eu placerat augue. Maecenas eget interdum   sapien. Cras tempus augue tortor, sed cursus orci vehicula   nec. Proin tempor mi in dolor   dignissim, id faucibus augue rutrum. Aenean vitae blandit neque, eu euismod dui. Nulla   gravida   non lectus ac sollicitudin. Mauris pretium dictum hendrerit. Sed et purus non tortor eleifend   venenatis nec   ac magna. Nam ipsum lectus, euismod ac rhoncus et, varius eu velit. Aenean arcu   enim, sagittis non posuere ac,   condimentum sit amet lorem.
+        </p>
+      </section>
+
+      <nav class="nav1 nav1-at-lvl2 js-nav1" data-current-lvl="2">
+
+        <a href="#" class="nav1-back js-nav1-back">&lt; TILLBAKA</a>
+        <ul class="nav1-lvl0 nav1-lvl__visible nav1-shuttle" data-lvl="0">
+          <li>
+            <a href="#" class="nav1-link nav1-link__on nav1-link__more js-nav1-link__more">För Hyregäster</a>
+            <ul class="nav1-lvl1 nav1-lvl__visible" data-lvl="1">
+              <li>
+                <a href="#" class="nav1-link nav1-link__on nav1-link__more js-nav1-link__more">Din Bostad</a>
+                <ul class="nav1-lvl2 nav1-lvl__visible" data-lvl="2">
+                  <li><a href="#" class="nav1-link">Rättigheter och skyldigheter</a></li>
+                  <li><a href="#" class="nav1-link nav1-link__on">Rent och fint i din lägenhet</a></li>
+                  <li><a href="#" class="nav1-link">Ventilation och värme</a></li>
+                  <li><a href="#" class="nav1-link">Vad får jag själv göra i min lägenhet?</a></li>
+                  <li><a href="#" class="nav1-link">Så betalar du hyran</a></li>
+                  <li><a href="#" class="nav1-link">Trygghet och säkerhet</a></li>
+                  <li><a href="#" class="nav1-link">Trivselregler</a></li>
+                  <li><a href="#" class="nav1-link">Individuell energimätning</a></li>
+                </ul>
+              </li>
+              <li>
+                <li><a href="#" class="nav1-link">Byta bostad</a>
+              </li>
+              <li>
+                <a href="#" class="nav1-link nav1-link__more js-nav1-link__more">När du flyttar ut</a>
+                <ul class="nav1-lvl2" data-lvl="2">
+                  <li><a href="#" class="nav1-link">Checklista för flyttstädning</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="nav1-link">Blanketter</a>
+              </li>
+              <li>
+                <a href="#" class="nav1-link nav1-link__more js-nav1-link__more">Pågående arbeten i våra områden</a>
+                <ul class="nav1-lvl2" data-lvl="2">
+                  <li><a href="#" class="nav1-link">Bullaren</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="nav1-link">Wallenstam Partners</a>
+              </li>
+              <li>
+                <a href="#" class="nav1-link nav1-link__more js-nav1-link__more">Hyresgästerbjudanden</a>
+                <ul class="nav1-lvl2" data-lvl="2">
+                  <li><a href="#" class="nav1-link">Länsförsäkringar</a></li>
+                  <li><a href="#" class="nav1-link">Engelska Tapetmagasinet</a></li>
+                  <li><a href="#" class="nav1-link">Wallenstam Drive</a></li>
+                  <li><a href="#" class="nav1-link">Öijared Golfklubb</a></li>
+                  <li><a href="#" class="nav1-link">Grön el</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="nav1-link">Nyhetsbrev "Hemma hos oss"</a>
+              </li>
+              <li>
+                <a href="#" class="nav1-link">Nationella lägenhetsnumret</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="nav1-link nav1-link__more js-nav1-link__more">Söka boende</a>
+            <ul class="nav1-lvl1" data-lvl="1">
+              <li>
+                <a href="#" class="nav1-link">Till dig som söker</a>
+              </li>
+              <li>
+                <a href="#" class="nav1-link">Vi bygger</a>
+              </li>
+              <li>
+                <a href="#" class="nav1-link js-nav1-link__more">Parkering och förråd</a>
+                <ul class="nav1-lvl2" data-lvl="2">
+                  <li><a href="#" class="nav1-link">Parkering och garage</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#" class="nav1-link">Det här har vi byggt</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="nav1-link nav1-link__more js-nav1-link__more">Kundservice</a>
+            <ul class="nav1-lvl1" data-lvl="1">
+              <li>
+                <a href="#" class="nav1-link">Felanmälan</a>
+              </li>
+              <li>
+                <a href="#" class="nav1-link">Kontakt</a>
+              </li>
+              <li>
+                <a href="#" class="nav1-link">Jour efter kontorstid</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="nav1-link">Frågor &amp; Svar</a>
+          </li>
+          <li>
+            <a href="#" class="nav1-link nav1-link__more js-nav1-link__more">Om oss</a>
+            <ul class="nav1-lvl1" data-lvl="1">
+              <li>
+                <a href="#" class="nav1-link">Vårt engagemang för boende</a>
+              </li>
+              <li>
+                <a href="#" class="nav1-link">Våra kunder är viktiga</a>
+              </li>
+              <li>
+                <a href="#" class="nav1-link">Vår organisation</a>
+              </li>
+              <li>
+                <a href="#" class="nav1-link">Hur vi bygger</a>
+              </li>
+              <li>
+                <a href="#" class="nav1-link">Vi värnar hyresrätten</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="nav1-link nav1-link__more js-nav1-link__more">Actuellt</a>
+            <ul class="nav1-lvl1" data-lvl="1">
+              <li>
+                <a href="#" class="nav1-link">En varm &amp; skön lägenhet</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+      </nav>
+    </div>
+
+    <script src="javascript/vendor/classlist.js"></script>
+    <script src="javascript/vendor/foreach.js"></script>
+    <script>
+
+      var proto = function(){
+      
+        var init = function(){
+          backButtonInit();
+          nextMenuInit();
+        };
+      
+        var backButtonInit = function() {
+          var nav1 = document.querySelector('.js-nav1');
+          var backButton = document.querySelector('.js-nav1-back');
+          backButton.addEventListener('click', function(ev){
+            ev.preventDefault();
+            var currentLvl = parseInt( nav1.getAttribute('data-current-lvl') );
+            if ( currentLvl < 1 ) {
+              return;
+            }
+            var newLvl = currentLvl - 1;
+            nav1.setAttribute('data-current-lvl',newLvl);
+            nav1.classList.remove('nav1-at-lvl0');
+            nav1.classList.remove('nav1-at-lvl1');
+            nav1.classList.remove('nav1-at-lvl2');
+            nav1.classList.add('nav1-at-lvl' + newLvl);
+          })
+        }
+
+        var nextMenuInit = function() {
+          var nav1 = document.querySelector('.js-nav1');
+          var allParentLinks = document.querySelectorAll('.js-nav1-link__more');
+          var el;
+          var elLvl;
+          var newLvl;
+          for( i=0 ; i<allParentLinks.length ; i++ ) {
+            el = allParentLinks[i];
+            el.addEventListener('click', function(ev){
+              elLvl = parseInt( this.parentNode.parentNode.getAttribute('data-lvl') );
+              newLvl = elLvl + 1;
+              // clear existing layers from view
+              var AllMenusVisible = document.querySelectorAll('.nav1-lvl' + newLvl + '.nav1-lvl__visible,.nav1-lvl' + ( newLvl + 1 ) + '.nav1-lvl__visible');
+              for( k=0 ; k<AllMenusVisible.length ; k++ ) {
+                AllMenusVisible[k].classList.remove('nav1-lvl__visible');
+              }
+              // reveal new layer
+              var newMenuVisible = this.nextElementSibling;
+              newMenuVisible.classList.add('nav1-lvl__visible');
+              // move to new level
+              nav1.setAttribute('data-current-lvl',newLvl);
+              nav1.classList.remove('nav1-at-lvl0');
+              nav1.classList.remove('nav1-at-lvl1');
+              nav1.classList.remove('nav1-at-lvl2');
+              nav1.classList.add('nav1-at-lvl' + newLvl);
+            });
+          }
+          
+        }
+
+        return {
+          init: init
+        };
+      }();
+      proto.init();
+    </script>
+
+  </body>
+</html>
